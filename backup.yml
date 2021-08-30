@@ -4,9 +4,7 @@
   connection: network_cli
   gather_facts: false
   tasks:
-    - name: Get current date
-      local_action: command date +%Y-%b-%d
-      register: date
+    
     - name: Get current time
       local_action: command date +%H:%M
       register: time
@@ -18,6 +16,6 @@
          filename: "{{ ansible_net_hostname }}_{{ ansible_host }}.cfg"
          #Please change /home/hawar/Desktop to your direcotry
          #Every time create a new directory under named date and time
-         dir_path: /root/ansible-tower/backup/{{ date.stdout }}_at_{{ time.stdout }}
+         dir_path: /root/ansible-tower/backup/at_{{ time.stdout }}
     - name: Tasks done
-      debug: msg="All tasks has been done on {{ date.stdout }} at {{ time.stdout }}."
+      debug: msg="All tasks has been done  at {{ time.stdout }}."
