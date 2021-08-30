@@ -1,0 +1,19 @@
+---
+- name: Backup Cisco Router or Switch
+  hosts: switchaccel
+  connection: network_cli
+  gather_facts: false
+  tasks:
+   - name: DISPLAYING THE RUNNING-CONFIG
+     ios_command:
+       commands:
+         - show running-config  
+     register: config
+   - name: creation répertoire
+      file:
+        path: /root/backup
+        state: present
+   - name: SAVE OUTPUT TO ./backups/
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "/root/backup/show_run_{{ inventory_hostname }}.txt"
