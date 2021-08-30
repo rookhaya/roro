@@ -2,6 +2,8 @@
 - name: Backup Cisco Router or Switch
   hosts: switchaccel
   connection: network_cli
+  vars:
+    ansible_network_os: ios
   gather_facts: false
   tasks:
    - name: DISPLAYING THE RUNNING-CONFIG
