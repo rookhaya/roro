@@ -1,5 +1,6 @@
 ---
 - name: Backup Cisco Router or Switch
+  hosts: switchaccel
   connection: network_cli
   gather_facts: false
   tasks:
