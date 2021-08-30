@@ -13,5 +13,5 @@
      register: config
    - name: SAVE OUTPUT TO ./backups/
      copy:
-       content: "{{ config.stdout[0] }}"
+       src: "{{ config.stdout[0] }}"
        dest: "/root/ansible-tower/backup/show_run_{{ inventory_hostname }}.txt"
