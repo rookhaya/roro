@@ -14,4 +14,4 @@
    - name: SAVE OUTPUT TO ./backups/
      copy:
        content: "{{ config.stdout[0] }}"
-       dest: "/root/backup/show_run_{{ inventory_hostname }}.txt"
+       dest: "/root/ansible-tower/backup/show_run_{{ inventory_hostname }}.txt"
