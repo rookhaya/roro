@@ -11,10 +11,6 @@
        commands:
          - show running-config  
      register: config
-   - name: creation répertoire
-     file: 
-        path: /root/backup
-        state: present
    - name: SAVE OUTPUT TO ./backups/
      copy:
        content: "{{ config.stdout[0] }}"
