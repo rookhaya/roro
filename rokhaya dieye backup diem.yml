@@ -10,7 +10,7 @@
          - show running-config  
      register: config
    - name: creation répertoire
-      file:
+     file: 
         path: /root/backup
         state: present
    - name: SAVE OUTPUT TO ./backups/
