@@ -15,7 +15,7 @@
        backup: yes
        backup_options:
          #ansible_host = getting device IP, ansible_net_hostname = getting device hostname
-         filename: "running_config-{[ time.stdout }}"
+         filename: "running_config-{{ time.stdout }}"
          #Please change /home/hawar/Desktop to your direcotry
          #Every time create a new directory under named date and time
          dir_path: "/root/ansible-tower/backup/{{ date.stdout }}_at_{{ time.stdout }}"
