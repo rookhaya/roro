@@ -69,6 +69,7 @@
  
    - name: Copy Image // This could take up to 4 minutes
      net_put:
+       protocol: sftp
        src: "/etc/ansible/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
        dest: "flash:/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
      vars:
