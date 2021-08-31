@@ -5,7 +5,7 @@
   hosts: router
  
   vars:
-    upgrade_ios_version: 15.6(1)T
+    upgrade_ios_version: 15.6(2)T
  
   tasks:
     - name: CHECK CURRENT VERSION
