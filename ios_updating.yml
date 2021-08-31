@@ -60,7 +60,7 @@
        dest: "/etc/ansible/backups/{{hostvars.localhost.DTG}}/{{ inventory_hostname }}-{{hostvars.localhost.DTG}}-config.txt"
 
  - name: Save running config 
-    ios_config:
+   ios_config:
       save_when: always 
       ## Copy software to target device 
  
