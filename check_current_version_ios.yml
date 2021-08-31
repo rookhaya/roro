@@ -4,13 +4,14 @@
 - name: Upgrade CISCO IOS 
   hosts: router
   gather_facts: false
+  connection: network_cli
  
   vars:
     upgrade_ios_version: 15.6(2)T
  
   tasks:
     - name: CHECK CURRENT VERSION
-      ios_facts:
+      vyos_facts:
  
     - debug:
         msg:
