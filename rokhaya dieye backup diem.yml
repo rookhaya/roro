@@ -1,7 +1,7 @@
 ---
 - name: Backup Cisco Router or Switch
   hosts: switchaccel
-  connection: local
+  connection: network_cli
   vars:
     ansible_network_os: ios
   gather_facts: true
@@ -13,5 +13,5 @@
      register: config
    - name: SAVE OUTPUT TO 
      copy:
-       src: "{{ config.stdout[0] }}"
+       content: "{{ config.stdout[0] }}"
        dest:  "/etc/ansible/backups/show_run_{{ inventory_hostname }}.txt"
