@@ -3,6 +3,7 @@
  
 - name: Upgrade CISCO IOS 
   hosts: router
+  gather_facts: false
  
   vars:
     upgrade_ios_version: 15.6(2)T
