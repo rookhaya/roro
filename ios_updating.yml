@@ -70,7 +70,7 @@
    - name: Copy Image // This could take up to 4 minutes
      fetch:
        src: "/etc/ansible/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
-       dest: "flash:/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
+       dest: "flash0:/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
      vars:
         ansible_command_timeout: 600
 
