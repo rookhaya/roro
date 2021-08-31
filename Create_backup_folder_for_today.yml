@@ -1,7 +1,6 @@
 ## Create backup folder for today 
 ---
 - hosts: ansible
- 
   tasks:
    - name: Get ansible date/time facts
      setup:
