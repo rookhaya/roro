@@ -1,6 +1,5 @@
 ---
 # Ansible Playbook to upgrade Cisco IOS 
- 
 - name: Upgrade CISCO IOS 
   hosts: router
   
@@ -88,12 +87,12 @@
          - 'y'
 ## Test Reachability to the device 
  
-    - name: Wait for device to come back online
-      wait_for:
+   - name: Wait for device to come back online
+     wait_for:
          host: "{{ inventory_hostname }}"
          port: 22
          delay: 90
-      delegate_to: localhost        
+     delegate_to: localhost        
 
 ## Check current image 
  
