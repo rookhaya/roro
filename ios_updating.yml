@@ -59,22 +59,22 @@
        content: "{{config.stdout[0]}}"
        dest: "/etc/ansible/backups/{{hostvars.localhost.DTG}}/{{ inventory_hostname }}-{{hostvars.localhost.DTG}}-config.txt"
 
- - name: Save running config 
-   ios_config:
+   - name: Save running config 
+     ios_config:
       save_when: always 
       ## Copy software to target device 
  
- - name: Copy Image // This could take up to 4 minutes
-   net_put:
+   - name: Copy Image // This could take up to 4 minutes
+     net_put:
        src: "/etc/ansible/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
        dest: "flash:/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
-   vars:
-       ansible_command_timeout: 600
+     vars:
+        ansible_command_timeout: 600
 
 ## Change the Boot Variable to the new image 
  
-   - name: Change Boot Variable to new image 
-     ios_config:
+   -  name: Change Boot Variable to new image 
+      ios_config:
        commands:
          - "boot system flash:vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
        save_when: always
