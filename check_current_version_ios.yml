@@ -3,7 +3,7 @@
  
 - name: Upgrade CISCO IOS 
   hosts: router
-  gather_facts: false
+  gather_facts: true
   connection: network_cli
  
   vars:
