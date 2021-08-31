@@ -25,7 +25,7 @@
       when: ansible_net_version != upgrade_ios_version
       ## Create backup folder for today 
  
-- hosts: ansible
+- hosts: localhost
  
   tasks:
    - name: Get ansible date/time facts
