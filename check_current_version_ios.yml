@@ -8,6 +8,7 @@
  
   vars:
     upgrade_ios_version: 15.6(2)T
+    ansible_network_os: ios
  
   tasks:
     - name: CHECK CURRENT VERSION
