@@ -4,14 +4,14 @@
   connection: network_cli
   vars:
     ansible_network_os: ios
-  gather_facts: false
+  gather_facts: true
   tasks:
    - name: DISPLAYING THE RUNNING-CONFIG
      ios_command:
        commands:
          - show running-config  
      register: config
-   - name: SAVE OUTPUT TO ./backups/
+   - name: SAVE OUTPUT TO 
      fetch:
        src: "{{ config.stdout[0] }}"
-       dest: "/root/ansible-tower/backup/show_run_{{ inventory_hostname }}.txt"
+       dest:  "/etc/ansible/backups/show_run_{{ inventory_hostname }}.txt"
