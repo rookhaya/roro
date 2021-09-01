@@ -79,7 +79,7 @@
    -  name: Change Boot Variable to new image 
       ios_config:
        commands:
-         - "boot system flash:vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
+         - "boot system flash0/:vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
        save_when: always
        
    - name: Reload the Device 
