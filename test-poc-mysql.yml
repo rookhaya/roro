@@ -2,7 +2,8 @@
 - name: first play
   hosts: poc-mysql
   tasks:
-    - name: Create a new database with name 
+    - name: Dump all databases to hostname.sql
       mysql_db:
-        name: bobdata
-        state: present
+        state: dump
+        name: all
+        target: /tmp/dump.sql
