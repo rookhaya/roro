@@ -7,7 +7,7 @@
   connection: network_cli
  
   vars:
-    upgrade_ios_version: 15.6(2)T
+    upgrade_ios_version: 15.2(7)E4
     ansible_network_os: ios
   tasks:
     - name: CHECK CURRENT VERSION
@@ -16,7 +16,7 @@
     - debug:
         msg:
         - "Current version is {{ ansible_net_version }}"
-        - "Upgrade image is 15.6(2)T"
+        - "Upgrade image is 15.2(7)E4"
  
     - debug:
         msg:
@@ -39,13 +39,13 @@
  
    - name: Create Directory {{hostvars.localhost.DTG}}
      file:
-      path: /etc/ansible/backups/{{hostvars.localhost.DTG}}
+      path: /etc/ansible/accel/{{hostvars.localhost.DTG}}
       state: directory
   run_once: true
 
   ## Backup Running Config 
  
-- hosts: router 
+- hosts: router
   connection: network_cli
   vars:
     ansible_network_os: ios
@@ -57,10 +57,10 @@
        commands: show run  
      register: config
  
-   - name: Save output to ~/network-programmability/backups/
+   - name: Save output to accel backup
      copy:
        content: "{{config.stdout[0]}}"
-       dest: "/etc/ansible/backups/{{hostvars.localhost.DTG}}/{{ inventory_hostname }}-{{hostvars.localhost.DTG}}-config.txt"
+       dest: "/etc/ansible/accel/{{hostvars.localhost.DTG}}/{{ inventory_hostname }}-{{hostvars.localhost.DTG}}-config.txt"
 
    - name: Save running config 
      ios_config:
@@ -69,8 +69,8 @@
  
    - name: Copy Image // This could take up to 4 minutes
      fetch:
-       src: "/etc/ansible/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
-       dest: "flash0:/vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
+       src: "/etc/c2960l-universalk9-mz.152-7.E4.bin"
+       dest: "flash:/c2960l-universalk9-mz.152-7.E4.bin"
      vars:
         ansible_command_timeout: 600
 
@@ -79,7 +79,7 @@
    -  name: Change Boot Variable to new image 
       ios_config:
        commands:
-         - "boot system flash0/:vios-adventerprisek9-m.vmdk.SPA.156-2.T.qcow2"
+         - "boot system flash:/c2960l-universalk9-mz.152-7.E4.bin"
        save_when: always
        
    - name: Reload the Device 
