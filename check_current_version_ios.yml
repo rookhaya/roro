@@ -1,0 +1,26 @@
+---
+# Ansible Playbook to upgrade Cisco IOS 
+ 
+- name: Upgrade CISCO IOS 
+  hosts: router
+  gather_facts: true
+  connection: network_cli
+ 
+  vars:
+    upgrade_ios_version: 15.6(2)T
+    ansible_network_os: ios
+ 
+  tasks:
+    - name: CHECK CURRENT VERSION
+      vyos_facts:
+ 
+    - debug:
+        msg:
+        - "Current version is {{ ansible_net_version }}"
+        - "Upgrade image is 15.6(2)T"
+ 
+    - debug:
+        msg:
+        - "Image is not compliant and will be upgraded"
+ 
+      when: ansible_net_version != upgrade_ios_version
