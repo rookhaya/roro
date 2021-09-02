@@ -2,8 +2,8 @@
 - name: first play
   hosts: poc-mysql
   tasks:
-    - name: Dump all databases to hostname.sql
+    - name: Restore database
       mysql_db:
-        state: dump
-        name: all
-        target: /tmp/dump.sql
+        name: my_db
+        state: import
+        target: /tmp/dump.sql.bz2
