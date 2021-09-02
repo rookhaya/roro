@@ -1,8 +1,8 @@
 ---
-- name: Test
-  hosts: all
+- name: first play
+  hosts: web.example.com
   tasks:
-    - name: install 
-      yum: 
+    - name: first task
+      yum:
         name: httpd
         status: present
