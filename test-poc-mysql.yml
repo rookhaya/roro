@@ -3,6 +3,6 @@
   hosts: poc-mysql
   tasks:
     - name: Create a new database with name 
-      community.mysql.mysql_db:
+      mysql_db:
         name: bobdata
         state: present
