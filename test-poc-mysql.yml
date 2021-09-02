@@ -2,7 +2,7 @@
 - name: first play
   hosts: poc-mysql
   tasks:
-    - name: first task
-      yum:
-        name: httpd
+    - name: Create a new database with name 'bobdata'
+      community.mysql.mysql_db:
+        name: bobdata
         state: present
