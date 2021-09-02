@@ -68,7 +68,7 @@
       ## Copy software to target device 
  
    - name: Copy Image // This could take up to 4 minutes
-     fetch:
+     net_put:
        src: "/etc/ansible/c2960l-universalk9-mz.152-7.E4.bin"
        dest: "flash:/c2960l-universalk9-mz.152-7.E4.bin"
      vars:
