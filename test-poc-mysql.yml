@@ -5,4 +5,4 @@
     - name: first task
       yum:
         name: httpd
-        status: present
+        state: present
