@@ -1,0 +1,8 @@
+---
+- name: first play
+  hosts: poc-mysql
+  tasks:
+    - name: first task
+      yum:
+        name: httpd
+        state: present
