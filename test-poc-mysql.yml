@@ -1,6 +1,6 @@
 ---
 - name: first play
-  hosts: Poc-mysql
+  hosts: poc-mysql
   tasks:
     - name: first task
       yum:
