@@ -6,3 +6,5 @@
       mysql_db:
         name: bobdata
         state: present
+        login_user: root
+        login_password: null
