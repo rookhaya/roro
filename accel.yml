@@ -1,7 +1,7 @@
 ---
 # Ansible Playbook to upgrade Cisco IOS 
 - name: Upgrade CISCO IOS 
-  hosts: router
+  hosts: rter
   
   gather_facts: true
   connection: network_cli
