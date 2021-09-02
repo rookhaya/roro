@@ -69,12 +69,11 @@
  
    - name: Copy Image // This could take up to 4 minutes
      commands: 
-          -  command: "copy ftp://admin:admin@192.168.14.82/c2960l-universalk9-mz.152-7.E4.bin flash:c2960l-universalk9-mz.152-7.E4.bin"
+          -  command: "copy ftp://admin:admin@192.168.14.82/c2960l-universalk9-mz.152-7.E4.bin flash:/c2960l-universalk9-mz.152-7.E4.bin"
              prompt: 'flash:/c2960l-universalk9-mz.152-7.E4.bin?'
              answer: "\r"
-      vars:
+     vars:
         ansible_command_timeout: 600
-exit
 
 ## Change the Boot Variable to the new image 
  
