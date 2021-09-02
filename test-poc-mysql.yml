@@ -1,8 +1,6 @@
 ---
 - name: first play
-  hosts: web.example.com
-  remote_user: root
-  become: yes
+  hosts: Poc-mysql
   tasks:
     - name: first task
       yum:
