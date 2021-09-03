@@ -2,7 +2,8 @@
 - name: first play
   hosts: poc-mysql
   tasks:
-    - name: Create a new database with name 
+    - name: Restore database
       mysql_db:
-        name: bobdata
-        state: present
+        name: my_db
+        state: import
+        target: /tmp/dump.sql
