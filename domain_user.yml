@@ -1,7 +1,6 @@
 ---
 - name:
   hosts: windows
-
   tasks:
    - name: Create a new domain group
      win_domain_group:

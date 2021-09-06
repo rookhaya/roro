@@ -8,7 +8,8 @@
   tasks:
     - name: Microsoft update servers are queried
       win_updates:
-        category_names: '*'
+        category_names:
+          - SecurityUpdates
         state: searched
         log_path: "{{ log_file }}"
 
@@ -23,5 +24,6 @@
 
     - name: Install all security updates with automatic reboots
       win_updates:
-        category_names: '*'
+        category_names: 
+          - SecurityUpdates
         reboot: yes
