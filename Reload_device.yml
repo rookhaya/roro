@@ -1,0 +1,24 @@
+## Reload the device 
+---
+- name: reload the device
+  hosts: router
+  gather_facts: true
+  connection: network_cli
+  vars:
+    ansible_network_os: ios
+  tasks:
+   - name: Reload the Device 
+     cli_command:
+       command: reload
+       prompt:
+         - confirm
+       answer:
+         - 'y'
+         ## Test Reachability to the device 
+ 
+   - name: Wait for device to come back online
+     wait_for:
+         host: "{{ inventory_hostname }}"
+         port: 22
+         delay: 90
+     delegate_to: localhost
